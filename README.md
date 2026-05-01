@@ -14,7 +14,7 @@
 
 PlaudPipeline is a self-hosted alternative to Plaud's cloud AI features. 
 
-**Automation pipeline** — a set of Python scripts + systemd timer that runs every few hours on a Linux server, automatically downloading recordings from Plaud, transcribing them, generating meeting minutes with a local LLM, exporting to Word, and uploading to Google Drive
+**Automation pipeline** = a set of Python scripts + systemd timer that runs every few hours on a Linux server, automatically downloading recordings from Plaud, transcribing them, generating meeting minutes with a local LLM, exporting to Word, and uploading to Google Drive
 
 ---
 
