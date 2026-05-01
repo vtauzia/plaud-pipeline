@@ -1,0 +1,27 @@
+[Unit]
+Description=Plaud Recording Pipeline
+# Wait for the network (and DNS) to be fully up before running
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+
+# Run as the regular user, not root
+User=vtauzia
+Group=vtauzia
+
+WorkingDirectory=/plaud
+
+# Load environment variables (GDRIVE_FOLDER_ID, PLAUD_TOKEN, etc.)
+EnvironmentFile=/plaud/pipeline.env
+
+ExecStart=/plaud/run_pipeline.sh
+
+# Give the pipeline up to 4 hours to complete before systemd kills it
+TimeoutStartSec=14400
+
+# Forward stdout/stderr to the systemd journal (viewable with journalctl)
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=plaud-pipeline

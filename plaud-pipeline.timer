@@ -1,0 +1,15 @@
+[Unit]
+Description=Run Plaud pipeline every 6 hours
+
+[Timer]
+# Run 2 minutes after boot (gives the system time to settle)
+OnBootSec=5min
+
+# Then repeat every 6 hours after the last run completed
+OnUnitActiveSec=6h
+
+# If the system was off during a scheduled run, catch up immediately on next boot
+Persistent=true
+
+[Install]
+WantedBy=timers.target
