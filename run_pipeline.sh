@@ -75,13 +75,13 @@ run_step 1 "Download recordings from Plaud" \
     python3 copy_plaud_recording.py
 
 run_step 2 "Transcribe audio recordings" \
-    python3 transcribe_recordings.py
+    python3 transcribe_plaud_recording.py
 
 run_step 3 "Summarize transcripts with LLM" \
-    python3 summarize_transcripts.py
+    python3 summarize_plaud_transcription.py
 
 run_step 4 "Export summaries to Word (.docx)" \
-    python3 export_to_docx.py
+    python3 convert_to_word.py
 
 run_step 5 "Upload .docx files to Google Drive" \
     python3 upload_to_gdrive.py
